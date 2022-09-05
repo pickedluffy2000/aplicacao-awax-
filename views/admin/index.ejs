@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/records.css">
+    <link rel="stylesheet" href="/assets/css/modal.css">
+    <title>Awax-admin</title>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Cadastro de Clientes</h1>
+    </header>
+    <main>
+        <button type="button" class="button blue mobile" id="cadastrar">Cadastrar Cliente</button>
+        <a href="/admin/logout" class="a red mobile" id="sair-cliente">Sair</a>
+        <table class="records">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Message</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% data.forEach(function(row){%>
+                <tr data-row="<%= JSON.stringify(row); %>">
+                    <td><%= row.name %></td>
+                    <td><%= row.email %></td>
+                    <td><%= row.message %></td>
+                    <td>
+                     <button type="button" class="button green  btn-update">editar</button>
+                     <button type="button" class="button red  btn-delete"  id="delete-user">excluir</button>         
+                    </td>
+                </tr>
+                <% }); %>
+                
+            </tbody>
+        </table>
+
+        <div class="modal" id="modal-create">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Criar</h2>
+                    <span class="modal-close" id="close-modal">&#10006;</span>
+                </header>
+                  <form method="post"  action="http://localhost:3000/admin">
+                    <input type="name" class="modal-field" name="name"  placeholder="Nome do Cliente">
+                    <input type="email" class="modal-field" name="email"  placeholder="e-mail do Cliente">
+                    <input type="text" class="modal-field" name="message"  placeholder="Mensagem do Cliente">
+               
+                    <footer class="modal-footer">
+                        <button type="submit" class="button blue">Salvar</button>
+                        <button type="button" class="button red">Cancelar</button>
+                    </footer>    
+                </form>      
+            </div>  
+        </div>
+        
+        <div class="modal" id="modal-update">
+            <div class="modal-content">             
+                <header class="modal-header">
+                    <h2>Editar</h2>
+                    <span class="modal-close" id="modal-close">&#10006;</span>
+                </header>
+                <form method="post" action="http://localhost:3000/admin">
+                    <input type="hidden" name="id">
+                    <input type="text" class="modal-field" name="name" placeholder="Nome do Cliente">
+                    <input type="text" class="modal-field" name="email" placeholder="e-mail do Cliente">
+                    <input type="text" class="modal-field" name="message" placeholder="Mensagem do Cliente">
+               
+                    <footer class="modal-footer">
+                        <button type="submit" class="button blue">Salvar</button>
+                        <button type="button" class="button red">Cancelar</button>
+                    </footer>    
+                </form>      
+            </div>  
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; DevMateus.
+    </footer>      
+    
+    <script src="/js/controller/projeto-formsave.js"></script>
+    <script>
+        
+    //create
+    let openMod = () => document.getElementById('modal-create').classList.add('active');
+
+    let closeModal = () => document.getElementById('modal-create').classList.remove('active');
+
+    let formCreate = document.querySelector("#modal-create form");
+    
+    formCreate.save().then(json=>{
+        window.location.reload();
+    }).catch(err=>{
+        console.log(err);
+    });
+
+    document.getElementById('cadastrar').addEventListener('click', openMod);
+
+    document.getElementById('close-modal').addEventListener('click', closeModal);
+    // fim do create
+
+            
+   //edit
+    let openModal = () => document.getElementById('modal-update').classList.add('active');
+
+    let formUpdate = document.querySelector("#modal-update form");
+    
+    formUpdate.save().then(json=>{
+        window.location.reload();
+    }).catch(err=>{
+        console.log(err);
+    });
+    // fim do edit
+
+    // delete
+    [...document.querySelectorAll('.btn-delete')].forEach(btn=>{
+
+     btn.addEventListener('click', e=>{
+
+     let tr = e.path.find(el => {
+       
+     return (el.tagName.toUpperCase() === 'TR');
+
+      });
+
+       let data = JSON.parse(tr.dataset.row);
+
+       if(confirm(`Deseja realmente excluir o menu ${data.name}?`)){
+
+       fetch(`http://localhost:3000/admin/${data.id}`, {
+        method:'DELETE'
+       }).then(response => response.json())
+       .then(json => {
+
+        window.location.reload();
+
+       });
+       }
+     });
+  });
+    // fim do delete
+
+    //pegar dados da row de edit
+    [...document.querySelectorAll('.btn-update')].forEach(btn => {
+
+      btn.addEventListener('click', e=>{
+    
+      let tr = e.path.find(el => {
+       
+       return (el.tagName.toUpperCase() === 'TR');
+
+        });
+
+        let data = JSON.parse(tr.dataset.row);
+
+       for (let name in data) {
+          let input = formUpdate.querySelector(`[name=${name}]`);
+          if (input) input.value = data[name];
+         
+       }
+       openModal();
+    });
+  });
+    //pegar dados da row de edit
+
+       </script>
+            
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

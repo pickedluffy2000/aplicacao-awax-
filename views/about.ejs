@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("inc/head") -%>
+
+<body>
+  <header>
+    <div class="header">
+
+      <div class="logo">
+        <div class="logo-img"></div>
+      </div>
+      
+      <div class="menu" id="menu-opener">
+        <img class="menu-opener" src="assets/images/menu.png" alt="">
+        <nav id="opener-mobile">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li  class="active"><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>  
+      </div>
+    </div>
+    </header>
+
+     <main>
+
+    <section class="banner">
+
+        <div class="slides">
+          <input type="radio" name="slide" id="slide1" checked>
+          <input type="radio" name="slide" id="slide2">
+          <input type="radio" name="slide" id="slide3">
+      
+
+        <div class="slide s1">
+          <div class="slidearea">
+            <h1>Desing is<br/><span>Communication</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+             <a href="/about">About</a>
+           </div>
+        </div>
+
+        <div class="slide">
+          <div class="slidearea">
+            <h1>Desing<br/><span>Contact</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+            <a href="/contact">Contact</a>
+           </div>
+        </div>
+
+        <div class="slide">
+          <div class="slidearea">
+            <h1>Desing and About<br/><span>services</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+            <a href="/services">Services</a>
+           </div>
+        </div>
+
+        <div class="navigation-auto">
+          <label class="bar1" for="slide1"></label>
+          <label class="bar2" for="slide2"></label>
+          <label class="bar3" for="slide3"></label>
+        </div>
+
+        <div class="navigation">
+          <label class="bar1" for="slide1"></label>
+          <label class="bar2" for="slide2"></label>
+          <label class="bar3" for="slide3"></label>
+  
+        </div>
+        </div>
+    </section>
+
+    <section class="default light">
+      <div class="section-title">About Us</div>
+      <div class="section-desc">Who we are?</div>
+      <div class="section-body">
+        <div class="section-aboutus">
+          <div class="section-aboutus--left" data-anime="left">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Quam ipsam voluptatibus reiciendis unde dignissimos deleniti ullam 
+              dolore eveniet, in, cupiditate rem quas quisquam asperiores repellendus 
+              praesentium aliquid ad, nisi id. Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+              Obcaecati, qui! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, natus?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, necessitatibus?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, eveniet?
+            </p>
+            
+          </div>
+
+          <div class="section-aboutus--right" data-anime="right">
+            <img src="media/foto9.jpg" alt=""/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     </main>
+
+     
+        <footer>
+          <div class="main">
+            <div class="footer-links">
+              <div class="footer-company">
+                <h4>Credits for layout</h4>
+                <h6>Alexander Bukin</h6>
+              </div>
+              
+              <div class="footer-social">
+                <h4>Stay connected</h4>
+                <div class="social-icons">
+                  <a href=""><img src="assets/images/twitter.png" alt=""></a>
+                  <a href="https://www.facebook.com/mateuswinshester100/"><img src="assets/images/facebook.png" alt=""></a>
+                </div>
+              </div>
+              <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <h6>+ 55 21 994048385</h6>
+                <h6>mateus.r2000@gmail.com</h6>
+                <h6>Rua soares d'Andreia, Rio de janeiro</h6>
+              </div>
+            </div>
+          </div>
+          <div class="last">DevMateus 2022 - Use like you want</div>
+        </footer>
+
+        <script src="/js/utils/Format.js"></script>
+        <script src="/js/controller/AwaxController.js"></script>
+        <script src="/js/app.js"></script>
+      
+</body>
+
+</html>

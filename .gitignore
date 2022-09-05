@@ -1,0 +1,3 @@
+#Arquivos e pastas qu devem ser ignorados
+
+node_modules/

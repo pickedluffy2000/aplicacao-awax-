@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("inc/head") -%>
+
+<body>
+    <header>
+    <div class="header">
+
+      <div class="logo">
+        <div class="logo-img"></div>
+      </div>
+      
+      <div class="menu" id="menu-opener">
+        <img class="menu-opener" src="assets/images/menu.png" alt="">
+        <nav id="opener-mobile">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li class="active"><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>  
+      </div>
+    </div>
+    </header>
+
+    <main>
+
+      <section class="banner">
+
+        <div class="slides">
+          <input type="radio" name="slide" id="slide1" checked>
+          <input type="radio" name="slide" id="slide2">
+          <input type="radio" name="slide" id="slide3">
+      
+
+        <div class="slide s1">
+          <div class="slidearea">
+            <h1>Desing is<br/><span>Communication</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+             <a href="/about">About</a>
+           </div>
+        </div>
+
+        <div class="slide">
+          <div class="slidearea">
+            <h1>Desing<br/><span>Contact</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+            <a href="/contact">Contact</a>
+           </div>
+        </div>
+
+        <div class="slide">
+          <div class="slidearea">
+            <h1>Desing and About<br/><span>services</span></h1>
+            <h2>Call Us: +0 00 1234 5678</h2>
+            <a href="/services">Services</a>
+           </div>
+        </div>
+
+        <div class="navigation-auto">
+          <label class="bar1" for="slide1"></label>
+          <label class="bar2" for="slide2"></label>
+          <label class="bar3" for="slide3"></label>
+        </div>
+
+        <div class="navigation">
+          <label class="bar1" for="slide1"></label>
+          <label class="bar2" for="slide2"></label>
+          <label class="bar3" for="slide3"></label>
+  
+        </div>
+    </section>
+
+        <section class="default dark">
+            <div class="section-title">Some Facts</div>
+            <div class="section-desc">About our work</div>
+            <div class="section-body">
+                <div class="section-facts">
+                    <div class="section-fact">
+                        <h3>1000</h3>
+                        <div class="section-fact-line"></div>
+                        <h4>Design Projects Released</h4>
+                        <p>Donec tincidunt cursus</p>
+                    </div>
+                    <div class="section-fact">
+                        <h3>900</h3>
+                        <div class="section-fact-line"></div>
+                        <h4>Photos</h4>
+                        <p>Morbi ex felis, tincidunt sed hendrerit</p>
+                    </div>
+                    <div class="section-fact">
+                        <h3>500</h3>
+                        <div class="section-fact-line"></div>
+                        <h4>Marketing Ideas</h4>
+                        <p>Donec tincidunt cursus</p>
+                    </div>
+                    <div class="section-fact">
+                        <h3>100</h3>
+                        <div class="section-fact-line"></div>
+                        <h4>Exhibitions</h4>
+                        <p>Morbi ex felis, tincidunt sed</p>
+                    </div>
+                </div>
+            </div>
+          </section>
+          
+          <section class="section-share">
+            <div class="section-share--legend">
+                <img src="assets/images/share.png" />
+                Tell About Us:
+            </div>
+            <div class="section-share--item">
+                <div class="section-share--icon twitter">
+                    <img src="assets/images/twitter.png" />
+                </div>
+                152
+            </div>
+            <div class="section-share--item">
+                <div class="section-share--icon linkedin">
+                    <img src="assets/images/linkedin.png" />
+                </div>
+                152
+            </div>
+            <div class="section-share--item">
+                <div class="section-share--icon facebook">
+                    <img src="assets/images/facebook.png" />
+                </div>
+                152
+            </div>
+            <div class="section-share--item">
+                <div class="section-share--icon googleplus">
+                    <img src="assets/images/googleplus.png" />
+                </div>
+                152
+            </div>
+            <div class="section-share--item">
+                <div class="section-share--icon pinterest">
+                    <img src="assets/images/pinterest.png" />
+                </div>
+                152
+            </div>
+          </section>
+          
+          <section class="default light" data-anime="right">
+            <div class="section-title">Contact Us</div>
+            <div class="section-desc">Our Agency Located in Melbourne, Australia</div>
+            <div class="section-body">
+                <div class="section-contact">
+                    <form action="/contact" method="post">
+                      <% if (typeof error === "string") {%> 
+                        <div class="alert alert-danger">
+                          <%= error %>
+                        </div>
+                        <% } %>
+        
+                        <% if (typeof success === "string") {%> 
+                          <div class="alert alert-success">
+                            <%= success %>
+                          </div>
+                          <% } %>
+                        <div class="section-contact--split"> 
+                            <input type="text" name="name" placeholder="NOME" />
+                            <input type="text" name="email" placeholder="EMAIL" />
+                        </div>        
+                        <textarea name="message" placeholder="MESSAGE"></textarea>
+                        <input type="submit" value="Send Message" class="button" />
+                    </form>
+                </div>
+            </div>
+          </section>
+    </main>
+
+        <footer>
+          <div class="main">
+            <div class="footer-links">
+              <div class="footer-company">
+                <h4>Credits for layout</h4>
+                <h6>Alexander Bukin</h6>
+              </div>
+              
+              <div class="footer-social">
+                <h4>Stay connected</h4>
+                <div class="social-icons">
+                  <a href=""><img src="assets/images/twitter.png" alt=""></a>
+                  <a href="https://www.facebook.com/mateuswinshester100/"><img src="assets/images/facebook.png" alt=""></a>
+                </div>
+              </div>
+              <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <h6>+ 55 21 994048385</h6>
+                <h6>mateus.r2000@gmail.com</h6>
+                <h6>Rua soares d'Andreia, Rio de janeiro</h6>
+              </div>
+            </div>
+          </div>
+          <div class="last">DevMateus 2022 - Use like you want</div>
+        </footer>
+
+        <script src="/js/utils/Format.js"></script>
+        <script src="/js/controller/AwaxController.js"></script>
+        <script src="/js/app.js"></script>
+  
+</body>
+
+</html>

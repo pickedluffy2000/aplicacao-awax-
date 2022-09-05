@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css" >
+    <title>Awax - Login</title>
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login</h1>
+            <img src="/assets/css/astronauta.svg" class="left-login-image" alt="astronauta animacao">
+        </div>
+
+        <form method="post">
+        <div class="login-right">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <% if (typeof error === "string") { %>
+                    <div class="alert alert-danger">
+                      <%= error %>
+                    </div>
+                    <% } %>
+                <div class="textfield">
+                    <label for="usuario">E-mail</label>
+                    <input type="text" name="email" placeholder="email" value="<%= body.email %>">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="password" placeholder="senha">
+                </div>
+                <button class="btn-login">Login</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
